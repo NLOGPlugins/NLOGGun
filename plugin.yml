@@ -1,0 +1,6 @@
+name: NLOGGun
+author: ANDLOG
+version: 1.0
+main: NLOGGun\NLOGGun
+api:
+- 3.0.0-ALPHA7
