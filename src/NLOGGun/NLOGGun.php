@@ -56,7 +56,6 @@ namespace NLOGGun {
 							);
 							$player->getLevel()->addParticle($par);
 						}
-						return;
 					}
 				}
 			}
