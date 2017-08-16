@@ -37,6 +37,9 @@ namespace NLOGGun {
 					$player->getLevel()->addParticle($particle);
 					
 					foreach ($player->getLevel()->getEntities() as $ent) {
+						if ($ent === $player) {
+							continue;
+						}
 						if (!isset($temp)) {
 							$temp = $ent;
 						}else{
@@ -45,19 +48,20 @@ namespace NLOGGun {
 							}
 						}
 					}
-					
-					if ($temp->distance($pos) < 2) {
+					if (!isset($temp)){
+					}elseif ($temp->distance($pos) < 2) {
 						for ($a=0; $a<5; $a++) {
 							$par = new FlameParticle($pos);
 							$par->setComponents(
-									$pos->x + (self::random() * 2 - 1) * 3, 
-									$pos->y + 0.3, 
-									$pos->z + (self::random() * 2 - 1) * 3
+								$pos->x + (self::random() * 2 - 1) * 3, 
+								$pos->y + 0.3, 
+								$pos->z + (self::random() * 2 - 1) * 3
 							);
 							$player->getLevel()->addParticle($par);
 						}
 						return;
 					}
+					
 				}
 			}
 		}
